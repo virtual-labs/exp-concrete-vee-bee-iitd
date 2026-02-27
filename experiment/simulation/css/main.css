@@ -1,1 +1,531 @@
-/* You CSS goes in here */
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, sans-serif;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    background: #000000; /* Dark background for the "letterbox" bars */
+    overflow: hidden; 
+}
+
+/* VIEWPORT CONTAINER */
+#simViewport {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* SIMULATION STAGE - THE LOCKED ASPECT RATIO CONTAINER */
+.sim-screen {
+    position: relative;
+    width: 100%;
+    max-width: 183.15vh; /* Aspect Ratio Limit (1707/932 * 100) */
+    height: auto;
+    aspect-ratio: 1707 / 932; /* CRITICAL: Locks the shape */
+    background: #ffffff;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.13);
+    
+    /* Enable Container Queries for Font Scaling */
+    container-type: inline-size; 
+}
+
+/* CENTER TITLE */
+#titleScreen {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+    width: 100%;
+}
+
+#testTitle {
+    font-size: 5cqw; /* Scale text relative to container width */
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 1.2cqw;
+}
+
+.subtitle {
+    font-size: 2cqw;
+    color: #555;
+}
+
+/* NEXT BUTTON */
+#nextBtn {
+    position: absolute;
+    right: 2.34%;  
+    bottom: 4.29%; 
+    width: 8.2%;   
+    cursor: pointer;
+    pointer-events: auto;
+    z-index: 9999;
+    user-select: none;
+    animation: blink 1.2s infinite ease-in-out;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
+}
+
+/* UPDATED INSTRUCTIONS BOX */
+#instructionsBox {
+    position: absolute;
+    top: 4.29%; 
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffeb3b;
+    color: #222;
+    border: 2px solid #222;
+    padding: 10px 30px;
+    border-radius: 8px;
+    z-index: 10000;
+    pointer-events: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s ease-in-out;
+    opacity: 0; /* Hidden by default until step 1 */
+}
+
+/* PSEUDO-ELEMENT FOR TEXT CONTENT */
+#instructionsBox::before {
+    font-size: 1.5cqw;
+    font-weight: 700;
+    display: block;
+    text-align: center;
+    white-space: pre-wrap; /* Allows \A for line breaks */
+}
+
+/* CSS INSTRUCTION MAPPINGS */
+#instructionsBox[data-step="1"]::before { content: "Prepare the cone for the test. Click Next"; }
+#instructionsBox[data-step="2"]::before { content: "Add funnel to the cone. Click Next"; }
+#instructionsBox[data-step="3"]::before { content: "Place the cone and funnel on the vee bee appratus. Click Next"; }
+#instructionsBox[data-step="4"]::before { content: "Bring the bin with concrete near the slump cone. Click Next"; }
+#instructionsBox[data-step="5"]::before { content: "Click Next"; }
+#instructionsBox[data-step="6"]::before { content: "Shovel a small amount of concrete"; }
+#instructionsBox[data-step="7"]::before { content: "Pour it in the cone"; }
+#instructionsBox[data-step="8"]::before { content: "Pick up the tamping rod and tamp the concrete in the cone for 25 times"; }
+#instructionsBox[data-step="9"]::before { content: "Shovel a small amount of concrete and pour it in the cone"; }
+#instructionsBox[data-step="10"]::before { content: "Pick up the tamping rod and tamp the concrete in the cone for 25 times"; }
+#instructionsBox[data-step="11"]::before { content: "Shovel a small amount of concrete and pour it in the cone"; }
+#instructionsBox[data-step="12"]::before { content: "Pick up the tamping rod and tamp the concrete in the cone for 25 times and level the concrete surface"; }
+#instructionsBox[data-step="13"]::before { content: "Click Next to remove the funnel"; }
+#instructionsBox[data-step="14"]::before { content: "Click next to lift the cone and rotate the glass lid"; }
+#instructionsBox[data-step="15"]::before { content: "Click Next to switch on the vibrator"; }
+#instructionsBox[data-step="16"]::before { content: "Click Next"; }
+
+/* ADD: Step 17 - Input State */
+#instructionsBox[data-step="17"] {
+    pointer-events: auto; /* Enable clicking inside */
+    background-color: #ffeb3b;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Hide default text content for step 17 so we can use HTML */
+#instructionsBox[data-step="17"]::before {
+    content: none;
+}
+
+/* Style for the time input to match the instruction text */
+#timeInput {
+    font-family: system-ui, sans-serif;
+    font-size: 1.5cqw; /* Matches #instructionsText font size */
+    font-weight: 700;
+    color: #222;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #222;
+    width: 3em;
+    text-align: center;
+    outline: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Optional: Confirmation step */
+#instructionsBox[data-step="18"]::before { content: "Time Recorded. Test Completed."; }
+
+#instructionsText {
+    font-size: 1.5cqw;
+    font-weight: 500;
+    line-height: 1.4;
+    color: #000000;
+}
+
+/* IMAGES & MACHINES */
+/* All sizes use % so they scale perfectly with the aspect-locked stage */
+
+.machine {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+#machineLower {
+    width: 14.65%; 
+    bottom: 8.58%; 
+    left: 30%;
+}
+
+#machineUpper {
+    width: 14.65%; 
+    top: 36.48%;   
+    left: 38.8%;
+    z-index: 6;
+}
+
+#cone {
+    position: absolute;
+    width: 10.54%; 
+    bottom: 31.97%; 
+    left: 10%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: left 0.7s cubic-bezier(0.4,0,0.2,1), opacity 0.4s ease;
+    pointer-events: none;
+    z-index: 4;
+}
+
+/* Add this to your style.css */
+#cone.return-to-start {
+    /* Step 1: GO UP */
+    bottom: 60% !important; 
+    /* bottom: moves instantly (0.6s)
+       left: waits 0.6s, then moves (0.8s)
+       bottom (again): waits 1.4s, then moves down (0.6s)
+    */
+    transition: 
+        bottom 0.6s ease-out, 
+        left 0.8s ease-in-out 0.6s;
+}
+
+#cone.at-start {
+    /* Step 2 & 3: GO LEFT then DOWN */
+    left: 10% !important;
+    bottom: 31.97% !important;
+    /* This transition overrides the one above to handle the descent */
+    transition: 
+        left 0.8s ease-in-out, 
+        bottom 0.6s ease-in 0.8s;
+}
+
+#cap {
+    position: absolute;
+    width: 6.44%; 
+    bottom: 48.28%; 
+    left: 10%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: left 0.7s cubic-bezier(0.4,0,0.2,1), opacity 0.4s ease;
+    pointer-events: none;
+    z-index: 5;
+}
+
+#cap.finished-pos {
+    left: 22%;
+}
+
+#cone.move-to-machine, #cap.move-to-machine {
+    left: 37%;
+}
+
+#tray {
+    position: absolute;
+    width: 11.72%; 
+    bottom: 6.44%; 
+    left: 65%;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: 3;
+}
+
+#spade {
+    position: absolute;
+    width: 5.86%;
+    bottom: 12.88%;
+    left: 70%;
+    transform: rotate(-25deg);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    cursor: pointer;
+    z-index: 9;
+}
+
+#spade.interactive { pointer-events: auto; }
+
+#arrow {
+    position: absolute;
+    width: 4.69%;
+    bottom: 20.39%;
+    left: 73%;
+    transform: translateX(-50%);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 6;
+}
+
+#arrow.active {
+    opacity: 1;
+    animation: arrowBlink 1s infinite ease-in-out;
+}
+
+@keyframes arrowBlink {
+    0% { opacity: 1; }
+    50% { opacity: 0.2; }
+    100% { opacity: 1; }
+}
+
+/* Spade Animations */
+@keyframes spadeScoop {
+    0% { transform: rotate(-25deg) translateX(0); }
+    25% { transform: rotate(-25deg) translateX(-20%); } 
+    50% { transform: rotate(-25deg) translateX(20%); }
+    75% { transform: rotate(-25deg) translateX(-20%); }
+    100% { transform: rotate(-25deg) translateX(0); }
+}
+
+#spade.scooping { animation: spadeScoop 0.6s ease-in-out 3; }
+
+/* CONCRETE ON SPADE */
+#concreteOnSpade, #concreteOnSpade3, #concreteOnSpade6, #concreteOnSpade9 {
+    position: absolute;
+    width: 5.27%; 
+    bottom: 14.48%; 
+    left: 70%;
+    transform: rotate(-25deg);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* CONCRETE IN CONE */
+#concreteInCone {
+    position: absolute;
+    width: 8.2%; 
+    bottom: 32.19%; 
+    left: 37%;
+    transform: translateX(-50%);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 5;
+}
+
+#concreteInCone2 { width: 9.96%; bottom: 32.19%; left: 37%; transform: translateX(-50%); opacity: 0; pointer-events: none; z-index: 5; position: absolute; }
+#concreteInCone4 { width: 8.79%; bottom: 32.19%; left: 37%; transform: translateX(-50%); opacity: 0; pointer-events: none; z-index: 5; position: absolute; }
+#concreteInCone5 { width: 9.37%; bottom: 32.19%; left: 37%; transform: translateX(-50%); opacity: 0; pointer-events: none; z-index: 5; position: absolute; }
+#concreteInCone7 { width: 9.67%; bottom: 32.19%; left: 37%; transform: translateX(-50%); opacity: 0; pointer-events: none; z-index: 5; position: absolute; }
+#concreteInCone8 { width: 9.96%; bottom: 32.19%; left: 37%; transform: translateX(-50%); opacity: 0; pointer-events: none; z-index: 5; position: absolute; }
+
+#concreteInCone10, #concreteInCone11, #concreteInCone12 { 
+    width: 10.25%; 
+    bottom: 32.19%; 
+    left: 37%; 
+    transform: translateX(-50%);
+    opacity: 0; 
+    pointer-events: none; 
+    z-index: 5; 
+    position: absolute; 
+}
+
+#concreteInCone13 {
+    width: 10.25%;
+    bottom: 32.19%;
+    left: 36.68%;
+    transform: translateX(-50%);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 5;
+    position: absolute;
+}
+
+/* LEVELER */
+#leveler {
+    position: absolute;
+    width: 7.62%; 
+    bottom: 62.23%; 
+    left: 5%;
+    opacity: 0;
+    pointer-events: none;
+    transform: rotate(90deg);
+    z-index: 20;
+    transition: bottom 0.5s ease-in-out, left 0.5s ease-in-out 0.5s, opacity 0.4s ease;
+}
+
+#leveler.working {
+    bottom: 39.7%; 
+    left: 33%;
+    transition: left 0.5s ease-in-out, bottom 0.5s ease-in-out 0.5s, opacity 0.4s ease;
+}
+
+#leveler.interactive { pointer-events: auto; cursor: pointer; }
+
+@keyframes levelerMotion {
+    0% { transform: rotate(90deg) translate(0, 0); }
+    25% { transform: rotate(90deg) translate(-15%, -10%); } 
+    50% { transform: rotate(90deg) translate(15%, 10%); }
+    75% { transform: rotate(90deg) translate(-15%, 10%); }
+    100% { transform: rotate(90deg) translate(0, 0); }
+}
+
+#leveler.active, #levelerHigh.active {
+    animation: levelerMotion 0.5s ease-in-out 25;
+}
+
+/* HIGH LEVELER */
+#levelerHigh {
+    position: absolute;
+    width: 7.62%;
+    bottom: 62.23%;
+    left: 5%;
+    opacity: 0;
+    pointer-events: none;
+    transform: rotate(90deg);
+    z-index: 20;
+    transition: bottom 0.5s ease-in-out, left 0.5s ease-in-out 0.5s, opacity 0.4s ease;
+}
+
+#levelerHigh.working {
+    bottom: 48.28%; 
+    left: 33%;
+    transition: left 0.5s ease-in-out, bottom 0.5s ease-in-out 0.5s, opacity 0.4s ease;
+}
+
+#levelerHigh.interactive { pointer-events: auto; cursor: pointer; }
+
+/* LEVELER ARROW */
+#levelerArrow {
+    position: absolute;
+    width: 1.76%; 
+    left: 7.94%;
+    bottom: 52.58%; 
+    transform: rotate(180deg);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 100;
+    transition: opacity 0.3s;
+}
+
+#levelerArrow.active {
+    opacity: 1;
+    animation: arrowBlink 1s infinite ease-in-out;
+}
+
+/* MIRROR UPPER MACHINE */
+#machineUpperMirror {
+    position: absolute;
+    width: 18.75%; 
+    top: 40.77%;   
+    left: 34.00%;  
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    z-index: 6;
+}
+
+#machineUpperMirror1 {
+    position: absolute;
+    width: 18.75%;
+    top: 41.20%; 
+    left: 34.12%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    z-index: 6;
+}
+
+/* VIBRATOR */
+#vibrator {
+    position: absolute;
+    width: 5.86%; 
+    bottom: 23.07%; 
+    left: 34%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 7;
+}
+
+@keyframes vibrate {
+    0% { transform: translateX(0) translateY(0); }
+    10% { transform: translateX(-3%) translateY(-3%); }
+    50% { transform: translateX(3%) translateY(3%); }
+    100% { transform: translateX(0) translateY(0); }
+}
+
+#vibrator.active { animation: vibrate 0.1s infinite; }
+
+/* CLOCK */
+#clock {
+    position: absolute;
+    width: 8.2%; 
+    bottom: 42.92%; 
+    left: 70%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 7;
+}
+
+#clock img:first-child { width: 100%; }
+
+#minuteHand {
+    position: absolute;
+    height: 42.8%; 
+    width: auto;
+    left: 50%;
+    top: 50%; 
+    transform-origin: 50% 100%;
+    /* Default starting position */
+    transform: translate(-50%, -100%) rotate(0deg);
+    z-index: 9;
+    /* Add transition for smooth movement when the rotation changes */
+    transition: transform 2s linear; 
+}
+
+/* New class to trigger the stop point */
+#minuteHand.stop-at-one {
+    transform: translate(-50%, -100%) rotate(43deg);
+}
+
+@keyframes rotateMinute {
+    from { transform: translate(-50%, -100%) rotate(0deg); }
+    to   { transform: translate(-50%, -100%) rotate(360deg); }
+}
+
+@keyframes spadeShake {
+    0% { transform: rotate(-25deg) translateX(0); }
+    25% { transform: rotate(-25deg) translateX(-15%); }
+    50% { transform: rotate(-25deg) translateX(15%); }
+    75% { transform: rotate(-25deg) translateX(-15%); }
+    100% { transform: rotate(-25deg) translateX(0); }
+}
+
+#spade.shaking { animation: spadeShake 0.4s ease-in-out 3; }
+
+/* Add to style.css */
+#testResultText {
+    position: absolute;
+    left: 110%; /* Positions it to the right of the clock face */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2cqw;
+    font-weight: 700;
+    color: #d32f2f; /* Red color to make it stand out */
+    white-space: nowrap;
+    transition: opacity 0.5s ease;
+}
