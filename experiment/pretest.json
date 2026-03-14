@@ -2,35 +2,103 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "Which Indian Standard (IS) Codes are adopted for performing the vee bee consistometer test and apparatus specifications respectively?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "IS 1199 and IS 10510",
+        "b": "IS 10510 and IS 1199",
+        "c": "IS 1199 and IS 5515",
+        "d": "IS 7320 and IS 1199"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Correct! IS 1199 covers the test procedure and IS 10510 covers the apparatus specifications.",
+        "b": "Incorrect. The order is reversed.",
+        "c": "Incorrect. IS 5515 is for compaction factor apparatus, not Vee Bee.",
+        "d": "Incorrect. IS 7320 is not relevant here."
       },
       "correctAnswer": "a",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "What is Vee Bee time?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "Time taken in remoulding of specimen from cylinder to cone",
+        "b": "Time taken in remoulding of specimen from cone to frustum",
+        "c": "Time taken in remoulding of specimen from frustum to cylinder",
+        "d": "Time taken in compacting the specimen in layers."
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Incorrect. The remoulding is from cone shape to cylinder, not the reverse.",
+        "b": "Incorrect. The specimen is remoulded from cone to cylinder, not frustum.",
+        "c": "Correct! Vee Bee time is the time taken for the concrete to remould from a conical (frustum) shape to a cylindrical shape under vibration.",
+        "d": "Incorrect. Vee Bee time measures remoulding time, not compaction time."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Vee bee test is used to assess workability when slump height is limited to?",
+      "answers": {
+        "a": "75 mm",
+        "b": "50 mm",
+        "c": "55 mm",
+        "d": "65 mm"
+      },
+      "explanations": {
+        "a": "Incorrect. The limit is 50 mm.",
+        "b": "Correct! For concrete with slump exceeding 50 mm, the remoulding occurs too rapidly for measurement.",
+        "c": "Incorrect. The limit is 50 mm.",
+        "d": "Incorrect. The limit is 50 mm."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Which of the following statement is incorrect?",
+      "answers": {
+        "a": "As slump increases, Vee bee time decreases as it becomes easier for concrete to flow.",
+        "b": "As slump increases, Vee bee time also increases.",
+        "c": "As slump increases, the compaction factor increases.",
+        "d": "As slump increases, degree of workability also improves from very low to high"
+      },
+      "explanations": {
+        "a": "This statement is correct. Higher slump means more workable concrete which remoulds faster.",
+        "b": "Correct! This is the INCORRECT statement. As slump increases, Vee bee time actually decreases because more workable concrete remoulds faster.",
+        "c": "This statement is correct. Higher slump correlates with higher compaction factor.",
+        "d": "This statement is correct. Higher slump indicates better workability."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Which test is most suitable for concrete of very low workability?",
+      "answers": {
+        "a": "Compaction Factor Test",
+        "b": "Slump Test",
+        "c": "Kelly Ball Test",
+        "d": "Vee Bee Test"
+      },
+      "explanations": {
+        "a": "Incorrect. While compaction factor test is used for low workability, the Vee Bee test is most suitable for very low workability.",
+        "b": "Incorrect. Slump test is not suitable for low workability concrete.",
+        "c": "Incorrect. Kelly Ball test is used for medium to high workability concrete.",
+        "d": "Correct! The Vee Bee test is most suitable for concrete with very low workability as it uses vibration to assess consistency."
+      },
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "How addition of pozzolans in concrete mix affects it?",
+      "answers": {
+        "a": "Improves workability",
+        "b": "Improves resistance to chemical attack",
+        "c": "Both of the above",
+        "d": "None of the above"
+      },
+      "explanations": {
+        "a": "Partially correct. Pozzolans do improve workability, but they also have other benefits.",
+        "b": "Partially correct. Pozzolans do improve chemical resistance, but they also have other benefits.",
+        "c": "Correct! Pozzolans improve both workability and resistance to chemical attack in concrete.",
+        "d": "Incorrect. Pozzolans have beneficial effects on concrete."
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
