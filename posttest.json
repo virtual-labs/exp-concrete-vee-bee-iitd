@@ -1,0 +1,107 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "Comment on the degree of workability if Vee bee time is found out to be 7 sec.",
+      "answers": {
+        "a": "Plastic",
+        "b": "Stiff Plastic",
+        "c": "Stiff",
+        "d": "Very Stiff"
+      },
+      "explanations": {
+        "a": "Incorrect. Plastic corresponds to 0-3 seconds.",
+        "b": "Incorrect. Stiff Plastic corresponds to 3-5 seconds.",
+        "c": "Correct! A Vee Bee time of 7 seconds falls in the Stiff range (5-10 seconds).",
+        "d": "Incorrect. Very Stiff corresponds to 10-18 seconds."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "In how many layers the concrete is placed in slump cone of Vee bee apparatus?",
+      "answers": {
+        "a": "In 3 layers each layer being one third of cone's height",
+        "b": "In 4 layers each layer being one fourth of cone's height",
+        "c": "In 6 layers each layer being one third of cone's height",
+        "d": "In 2 layers each layer being one third of cone's height"
+      },
+      "explanations": {
+        "a": "Incorrect. The cone is filled in 4 layers, not 3.",
+        "b": "Correct! The cone is filled with four layers of concrete, each layer being one fourth of the cone's height.",
+        "c": "Incorrect. The cone is filled in 4 layers, not 6.",
+        "d": "Incorrect. The cone is filled in 4 layers, not 2."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "If in the Vee bee test, initial reading before remoulding is 'a' in mm and final reading after remoulding is 'b' in mm, then slump is given by the expression as-",
+      "answers": {
+        "a": "b − a",
+        "b": "b / a",
+        "c": "a / b",
+        "d": "a − b"
+      },
+      "explanations": {
+        "a": "Incorrect. The slump is calculated as the initial reading minus the final reading.",
+        "b": "Incorrect. Slump is a difference, not a ratio.",
+        "c": "Incorrect. Slump is a difference, not a ratio.",
+        "d": "Correct! Slump = a − b, the difference between the initial reading before remoulding and final reading after remoulding."
+      },
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "The time at the instant vibrator is switched on is noted as 10:20 am and Vee bee time is found out to be 6 seconds, then what will be the time at which stopwatch is turned off?",
+      "answers": {
+        "a": "10:20.1 am",
+        "b": "10:20.2 am",
+        "c": "10:20.5 am",
+        "d": "10:20.6 am"
+      },
+      "explanations": {
+        "a": "Incorrect. 0.1 minutes = 6 seconds, but the notation here represents seconds directly.",
+        "b": "Incorrect. The Vee Bee time is 6 seconds, not 2 seconds.",
+        "c": "Incorrect. The Vee Bee time is 6 seconds, not 5 seconds.",
+        "d": "Correct! The stopwatch is turned off 6 seconds after 10:20 am, i.e., at 10:20.6 am (10:20 and 6 seconds)."
+      },
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Calculate the slump value in inches if initial reading before remoulding is found out to be 155 mm and final reading after remoulding is found out to be 110 mm.",
+      "answers": {
+        "a": "1.8 mm",
+        "b": "0.709 mm",
+        "c": "1.8 inch",
+        "d": "45 mm"
+      },
+      "explanations": {
+        "a": "Incorrect. The unit should be inches, not mm.",
+        "b": "Incorrect. Check the calculation and units.",
+        "c": "Correct! Slump = 155 - 110 = 45 mm. Converting to inches: 45/25.4 ≈ 1.8 inch.",
+        "d": "Incorrect. While 45 mm is the correct slump value, the question asks for the value in inches."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "In 3 consecutive tests on three samples of same mix, Vee bee time is noted as 4, 4.3 and 3.7 sec. Calculate the average Vee bee time in sec.",
+      "answers": {
+        "a": "12 sec",
+        "b": "4 sec",
+        "c": "9 sec",
+        "d": "11 sec"
+      },
+      "explanations": {
+        "a": "Incorrect. 12 is the sum, not the average.",
+        "b": "Correct! Average = (4 + 4.3 + 3.7) / 3 = 12 / 3 = 4 sec.",
+        "c": "Incorrect. Check the calculation: (4 + 4.3 + 3.7) / 3 = 4 sec.",
+        "d": "Incorrect. Check the calculation: (4 + 4.3 + 3.7) / 3 = 4 sec."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    }
+  ]
+}
