@@ -1,54 +1,29 @@
-### Procedure
+## Procedure
 
-### Step 1: Cone Filling and Compaction
+As per IS 1199, the procedure for conducting the Vee-Bee test is as follows:
 
-- Firstly, the sheet metal slump cone is placed into the cylindrical container within the consistometer.
-- Fill the cone with **four layers** of concrete, each layer being **one fourth** of cone's height, each layer compacted with **25 strokes** of tamping rod.
-- After placing the final layer upto cone's brim, level off the excess concrete.
+1. **Preparation of Apparatus:** Place the Vee-Bee consistometer on a rigid, horizontal base free from external vibrations. Ensure the container is firmly fixed to the vibrating table using wing nuts.
 
-### Step 2: Glass Disc Placement and Measurement
+2. **Positioning of Mould:** Dampen the inside of the slump mould and place it inside the container. Swing the funnel over the mould, lower it into position, and tighten the screw to prevent movement.
 
-- After filling the cone with concrete, move the glass disc attached to the swivel arm and position it gently on the top of the slump cone placed inside the cylindrical container.
-- Care should be taken that the disc should touch the concrete's top, measure the reading from the graduated scale attached to it, record it as initial reading before remoulding as **'a'** in mm.
+3. **Filling the Mould:** Fill the mould with fresh concrete in three equal layers (each about one-third height), ensuring uniform and symmetrical distribution.
 
-### Step 3: Cone Removal and Additional Measurement
+4. **Compaction:** Tamp each layer with 25 strokes of the tamping rod:
 
-- Immediately, remove the slump cone in order to get the desired cone of concrete.
-- Lower the transparent disc attached to the swivel arm again and place it on concrete's top, measure the reading from the graduated scale and record this reading as final reading after remoulding as **'b'** in mm.
+5. Bottom layer: strokes slightly inclined and spirally towards the center
 
-### Step 4: Slump Calculation
+6. Upper layers: strokes penetrate slightly into the previous layer
 
-- **Slump measurement = Difference in readings before and after remoulding = a − b in mm**
+7. **Leveling the Surface:** After the top layer is tamped, remove excess concrete and level the surface using a sawing and rolling motion of the tamping rod.
 
-### Step 5: Vibration, Spread and Time Measurement
+8. **Removing the Funnel and Mould:** Loosen the screw, swing the funnel away, and carefully lift the mould vertically within 7 ± 2 seconds without disturbing the concrete. Note if the concrete collapses or touches the container walls.
 
-- Switch on the electrical vibrator and simultaneously start the stopwatch & allow the cone to take the shape of cylinder.
-- The moment concrete cone spreads completely in the cylinder, stop the vibration and stopwatch.
-- Record the time elapsed as **'Vee Bee time'** in seconds.
+9. **Placing the Transparent Disc:** Swing the transparent disc over the concrete and lower it gently until it just touches the highest point. Record the slump value, if applicable.
 
-### Result Interpretation
+10. **Start of Vibration:** Loosen the screw to allow free movement of the disc. Start the vibrating table and stopwatch simultaneously.
 
-| Workability Description | Vee Bee Time in seconds |
-|---|---|
-| Plastic | 0 – 3 |
-| Stiff Plastic | 3 – 5 |
-| Stiff | 5 – 10 |
-| Very Stiff | 10 – 18 |
-| Extremely Dry | 18 – 32 |
+11. **Observation of Remoulding:** Observe the concrete through the disc as it remoulds from a conical to a cylindrical shape under vibration.
 
-### Precautions Necessary in Performing Vee Bee Consistometer Test
+12. **Recording Vee-Bee Time:** Stop the stopwatch when the underside of the disc fully contacts the cement paste. Record the time (in seconds) as the Vee-Bee time.
 
-- Ensure that before placing the mix in the cone, the cone is completely free from moisture and thoroughly cleaned.
-- The slump cone should be lifted properly in the upward direction to avoid any disturbances.
-- During tamping, ensure that strokes are provided uniformly and across full depth.
-- No other sources of vibration should be present in the vicinity of test apparatus except the motor vibration in the apparatus itself otherwise it may alter the time results.
-- Attain a state where the transparent disc rider fully covers the concrete, and all voids/cavities on the concrete surface disappear to achieve full remoulding.
-
-### Advantages
-
-Except providing quick assessment of concrete's workability, this test also offers insights into mobility and compactibility of freshly mixed concrete.
-
-### Disadvantages
-
-- Limited in evaluating certain aspects of concrete's behaviour.
-- Various factors impacting accuracy can influence results.
+13. **Time Constraint:** Complete the entire test within 5 minutes from the start of filling the mould.
