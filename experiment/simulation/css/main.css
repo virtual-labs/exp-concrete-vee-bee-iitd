@@ -529,3 +529,20 @@ body, html {
     white-space: nowrap;
     transition: opacity 0.5s ease;
 }
+
+#scaleDisclaimer {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    
+    padding: 10px 30px;
+    border-radius: 8px;
+    font-size: 12px;
+    
+    z-index: 10000;
+
+    white-space: nowrap; 
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+    pointer-events: none;
+}
