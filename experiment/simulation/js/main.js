@@ -145,6 +145,7 @@ nextBtn.addEventListener("click", () => {
     nextBtn.style.pointerEvents = "none";
 
     if (step === 0) {
+        document.getElementById("scaleDisclaimer").style.opacity = 1;
         setInstruction(1);
         title.style.transition = "0.5s";
         title.style.opacity = 0;
